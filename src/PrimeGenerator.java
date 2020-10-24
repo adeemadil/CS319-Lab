@@ -20,4 +20,25 @@ public class PrimeGenerator {
         if (isPrime(i))
         primes. add (i);
         }
+
+        return primes;
+    }
+
+    private boolean prime[];
+    private final int soeLimit = 1000000 ;
+    public PrimeGenerator () {
+        this .prime = new boolean [ this .soeLimit+ 1 ];
+        for ( int i = 2 ; i < this .soeLimit; i++)
+        prime[i] = true ;
+    sieveOfEratosthenes( this .soeLimit);
+    }
+
+    private void sieveOfEratosthenes ( int n) {
+        for ( int p = 2 ; p * p <= n; p++) {
+            if (prime[p]) {
+                for ( int i = p * 2 ; i <= n; i += p)
+                    prime[i] = false ;
+            }
+        }
+    }
 }
